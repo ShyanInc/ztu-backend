@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -25,14 +25,14 @@
         </form>
 
         <?php
-        if (isset($_POST["text"]) && isset($_POST["find"]) && isset($_POST["replace"])) {
-        $text = $_POST["text"];
-        $find = $_POST["find"];
-        $replace = $_POST["replace"];
+            if (isset($_POST['text']) && isset($_POST['find']) && isset($_POST['replace'])) {
+                $text = $_POST['text'];
+                $find = $_POST['find'];
+                $replace = $_POST['replace'];
 
-        $result = str_replace($find, $replace, $text);
-        echo "<h2>Результат: $result</h2>";
-        }
+                $result = str_replace($find, $replace, $text);
+                echo "<h2>Результат: $result</h2>";
+            }
         ?>
 
         <h2>Завдання 2</h2>
@@ -43,12 +43,12 @@
         </form>
 
         <?php
-        if (isset($_POST["cities"])) {
-        $citiesArray = explode(" ", $_POST["cities"]);
-        sort($citiesArray);
-        $sortedCitiesString = implode(", ", $citiesArray);
-        echo "<h2>Відсортовані міста: $sortedCitiesString</h2>";
-        }
+            if (isset($_POST['cities'])) {
+                $citiesArray = explode(' ', $_POST['cities']);
+                sort($citiesArray);
+                $sortedCitiesString = implode(', ', $citiesArray);
+                echo "<h2>Відсортовані міста: $sortedCitiesString</h2>";
+            }
         ?>
     </body>
 </html>
