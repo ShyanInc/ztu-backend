@@ -78,7 +78,6 @@
 
     <?php
     echo "<h2>Завдання 3</h2>";
-
     $exchange_rate = 38.6;
     $value = 1500;
     echo $value." грн. можна обміняти на ".floor(($value / $exchange_rate))."$"
