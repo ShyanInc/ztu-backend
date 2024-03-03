@@ -269,5 +269,44 @@
             echo '<h2>Масив 2: ' . implode(', ', $array2) . '</h2>';
             echo '<h2>Результат: ' . implode(', ', mergeSortedUniqueArrays($array, $array2)) . '</h2>';
         ?>
+
+        <h2>Завдання 2.4</h2>
+
+        <?php
+            function sort_users($users, $sort_by)
+            {
+                if ($sort_by == 'name') {
+                    ksort($users);
+                } else if ($sort_by == 'age') {
+                    asort($users);
+                }
+                return $users;
+            }
+
+            $users = array(
+                'Іван' => 25,
+                'Петро' => 30,
+                'Олег' => 20,
+                'Марія' => 22
+            );
+
+            $sorted_by_name = sort_users($users, 'name');
+            $sorted_by_age = sort_users($users, 'age');
+
+            echo '<h2>Початковий масив:</h2>';
+            foreach ($users as $name => $age) {
+                echo "<h2>$name: $age</h2>";
+            }
+
+            echo '<h2>Сортування за іменем:</h2>';
+            foreach ($sorted_by_name as $name => $age) {
+                echo "<h2>$name: $age</h2>";
+            }
+
+            echo '<h2>Сортування за віком:</h2>';
+            foreach ($sorted_by_age as $name => $age) {
+                echo "<h2>$name: $age</h2>";
+            }
+        ?>
     </body>
 </html>
