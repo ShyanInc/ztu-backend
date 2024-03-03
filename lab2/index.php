@@ -186,5 +186,51 @@
                 echo '<h2>Повторення: ' . $result . '</h2>';
             }
         ?>
+
+        <h2>Завдання 2.2</h2>
+        <form action="" method="post">
+            <button type="submit" name="generate_name">Згенерувати ім'я</button>
+        </form>
+
+        <?php
+
+            /**
+             * @param array<array<string>, array<string>> $components
+             * @return string
+             */
+            function generateAnimalName(&$components)
+            {
+                $name = '';
+                $num_components = count($components);
+
+                for ($i = 0; $i < $num_components; $i++) {
+                    $rand_index = array_rand($components[$i]);
+                    $name .= $components[$i][$rand_index];
+                }
+
+                return $name;
+            }
+
+            if (isset($_POST['generate_name'])) {
+                $cat_components = array(
+                    array('Мур', 'Мяу', 'Ласк'),
+                    array('ик', 'о', 'ун', 'а')
+                );
+
+                $dog_components = array(
+                    array('Гав', 'Вуф', 'Лай'),
+                    array('ик', 'о', 'ус', 'ун')
+                );
+
+                $hamster_components = array(
+                    array('Чіп', 'Пір', 'Сміш'),
+                    array('ик', 'о', 'ко', 'ун')
+                );
+
+                echo '<h2>Кішка: ' . generateAnimalName($cat_components) . '</h2>';
+                echo '<h2>Собака: ' . generateAnimalName($dog_components) . '</h2>';
+                echo "<h2>Хом'як: " . generateAnimalName($hamster_components) . '</h2>';
+            }
+        ?>
     </body>
 </html>
