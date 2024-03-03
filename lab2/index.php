@@ -232,5 +232,42 @@
                 echo "<h2>Хом'як: " . generateAnimalName($hamster_components) . '</h2>';
             }
         ?>
+
+        <h2>Завдання 2.3</h2>
+
+        <?php
+
+            /**
+             * @return array<int>
+             */
+            function createArray()
+            {
+                $array_length = rand(3, 7);
+                $array = array();
+                for ($i = 0; $i < $array_length; $i++) {
+                    array_push($array, rand(10, 20));
+                }
+                return $array;
+            }
+
+            /**
+             * @param array<int> $array1
+             * @param array<int> $array2
+             * @return array<int>
+             */
+            function mergeSortedUniqueArrays($array1, $array2)
+            {
+                $merged = array_merge($array1, $array2);
+                $merged = array_unique($merged);
+                sort($merged);
+                return $merged;
+            }
+
+            $array = createArray();
+            $array2 = createArray();
+            echo '<h2>Масив 1: ' . implode(', ', $array) . '</h2>';
+            echo '<h2>Масив 2: ' . implode(', ', $array2) . '</h2>';
+            echo '<h2>Результат: ' . implode(', ', mergeSortedUniqueArrays($array, $array2)) . '</h2>';
+        ?>
     </body>
 </html>
