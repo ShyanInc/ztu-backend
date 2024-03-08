@@ -160,16 +160,16 @@
 
         function draw_rand_field($squares_count)
         {
-            $grid_width = mt_rand(200, 400) . 'px';
-            $grid_height = mt_rand(200, 400) . 'px';
+            $grid_width = mt_rand(200, 400);
+            $grid_height = mt_rand(200, 400);
 
-            echo "<div class='sheet' style='max-width:$grid_width; height:$grid_height'>";
+            echo "<div class='sheet' style='max-width:{$grid_width}px; height:{$grid_height}px'>";
             for ($i = 0; $i < $squares_count; ++$i) {
-                $square_width = mt_rand(25, 50) . 'px';
-                $square_height = mt_rand(25, 50) . 'px';
-                $position_x = mt_rand(0 + $square_width, $grid_width - $square_width) . 'px';
-                $position_y = mt_rand(0 + $square_height, $grid_height - $square_height) . 'px';
-                echo "<div class='square' style='left:$position_x; top:$position_y; width:$square_width; height:$square_height;'></div>";
+                $square_width = mt_rand(25, 50);
+                $square_height = mt_rand(25, 50);
+                $position_x = mt_rand(0 + $square_width, $grid_width - $square_width);
+                $position_y = mt_rand(0 + $square_height, $grid_height - $square_height);
+                echo "<div class='square' style='left:{$position_x}px; top:{$position_y}px; width:{$square_width}px; height:{$square_height}px;'></div>";
             }
             echo '</div>';
         }
