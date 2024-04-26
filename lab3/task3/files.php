@@ -74,6 +74,9 @@ $file1_words = read_all_words(
 $file2_words = read_all_words(
     file('file2.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
 );
+$file3_words = read_all_words(
+    file('file3.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
+);
 
 $unique_file1_words = array_keys(
     array_count_values(array_diff($file1_words, $file2_words))
@@ -97,12 +100,16 @@ render_words_table(
     $repeated_file2_words
 );
 
+sort($file3_words);
+render_words_table('Sorted words', $file3_words);
+
 write_words_to_file('result1.txt', $unique_file1_words);
 write_words_to_file('result2.txt', $common_words);
 write_words_to_file(
     'result3.txt',
     array_merge($repeated_file1_words, $repeated_file2_words)
 );
+write_words_to_file('sorted.txt', $file3_words);
 ?>
 
 <!doctype html>
